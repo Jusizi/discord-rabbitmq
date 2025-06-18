@@ -1,0 +1,10 @@
+DISCORD_TOKEN=XXXXXXXXXXXXXXXXXXX
+AUTHORIZED_ROLES=MINHA_ROLE,MINHA_OUTRA_ROLE
+
+DOCKER_COMPOSE_CMD=docker compose
+
+# Path do docker-compose (pode variar conforme servidor)
+DOCKER_COMPOSE_PATH=/path/docker/exemplo/dev-docker-compose.yml
+
+# Workers no formato JSON (ou string separada, veja abaixo)
+WORKERS_JSON={"NFSe Consulta":{"container_name":"worker-nfse-consulta"},"Boletos Consulta":{"container_name":"worker-boletos-consultas"}}
