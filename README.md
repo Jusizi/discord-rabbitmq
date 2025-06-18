@@ -124,6 +124,46 @@ python3 bot.py
 
 ---
 
+
+
+
+# Fazer do BOT um serviço Linux (Extra)
+
+Criar a configuração do serviço
+```bash
+sudo nano /etc/systemd/system/discord-rabbitmq.service
+```
+
+Conteúdo
+```service
+[Unit]
+Description=Discord RabbitMQ Bot
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/home/discord-rabbitmq
+ExecStart=/home/discord-rabbitmq/venv/bin/python /home/discord-rabbitmq/bot.py
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Restartar os serviços
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable discord-rabbitmq.service
+sudo systemctl start discord-rabbitmq.service
+```
+
+Verificar se está rodando..
+```bash
+sudo service discord-rabbitmq status
+```
+
 ## Contato / Suporte
 
 Se precisar de ajuda, abra uma issue no repositório ou me chame no Discord.
